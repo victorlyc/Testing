@@ -5,7 +5,6 @@ var morgan = require('morgan');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var config = require('./config');
-
 var router = require('./routes/route');
 
 mongoose.connect(config.DB_URL, config.DB_OPTIONS);
@@ -34,4 +33,4 @@ app.get('*', function(req, res) {
 });
 
 app.listen(config.APP_PORT);
-console.log("App listening on port " + config, APP_PORT);
+console.log("App listening on port " + config.APP_PORT);
