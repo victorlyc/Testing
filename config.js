@@ -13,4 +13,4 @@ exports.DB_OPTIONS = {
 		}
 	}
 };
-exports.APP_PORT = 8080;
+exports.APP_PORT = process.env.PORT || 8080;
