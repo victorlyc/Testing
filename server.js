@@ -4,27 +4,11 @@ var mongoose = require('mongoose');
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
+var config = require('./config');
 
 var router = require('./routes/route');
 
-var options = {
-	server : {
-		socketOptions : {
-			keepAlive : 300000,
-			connectTimeoutMS : 30000
-		}
-	},
-	replset : {
-		socketOptions : {
-			keepAlive : 300000,
-			connectTimeoutMS : 30000
-		}
-	}
-};
-
-var mongodbUri = 'mongodb://admin:123@ds019668.mlab.com:19668/mongo_test';
-
-mongoose.connect(mongodbUri, options);
+mongoose.connect(config.DB_URL, config.DB_OPTIONS);
 var conn = mongoose.connection;
 
 conn.on('error', console.error.bind(console, 'connection error:'));
@@ -49,5 +33,5 @@ app.get('*', function(req, res) {
 	res.sendfile('./public/index.html');
 });
 
-app.listen(8080);
+app.listen(config.APP_PORT);
 console.log("App listening on port 8080");
