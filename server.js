@@ -26,7 +26,7 @@ app.use(bodyParser.json({
 }));
 app.use(methodOverride());
 
-app.get('/', router);
+app.use('/api', router);
 
 app.get('*', function(req, res) {
 	res.sendfile('./public/index.html');

@@ -2,7 +2,7 @@ var express = require('express');
 var Todo = require('../model/todo');
 var router = express.Router();
 
-router.get('/api/todos', function(req, res) {
+router.get('/todos', function(req, res) {
 
     Todo.find(function(err, todos) {
         if (err) {
@@ -13,7 +13,7 @@ router.get('/api/todos', function(req, res) {
     });
 });
 
-router.post('/api/todos', function(req, res) {
+router.post('/todos', function(req, res) {
 
     Todo.create({
         text : req.body.text,
@@ -33,7 +33,7 @@ router.post('/api/todos', function(req, res) {
 
 });
 
-router.delete('/api/todos/:todo_id', function(req, res) {
+router.delete('/todos/:todo_id', function(req, res) {
     Todo.remove({
         _id : req.params.todo_id
     }, function(err, todo) {
