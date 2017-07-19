@@ -2,6 +2,8 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var Todo = new Schema({
+	creDate : Date,
+	category : String,
 	text : String
 });
 
