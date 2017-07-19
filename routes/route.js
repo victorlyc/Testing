@@ -2,9 +2,9 @@ var express = require('express');
 var Todo = require('../model/todo');
 var router = express.Router();
 
-router.get('/todos', function(req, res) {
+router.get('/todos', function (req, res) {
 
-    Todo.find(function(err, todos) {
+    Todo.find(function (err, todos) {
         if (err) {
             res.send(err);
         }
@@ -13,17 +13,17 @@ router.get('/todos', function(req, res) {
     });
 });
 
-router.post('/todos', function(req, res) {
+router.post('/todos', function (req, res) {
 
     Todo.create({
-        text : req.body.text,
-        done : false
-    }, function(err, todo) {
+        text: req.body.text,
+        done: false
+    }, function (err, todo) {
         if (err) {
             res.send(err);
         }
 
-        Todo.find(function(err, todos) {
+        Todo.find(function (err, todos) {
             if (err) {
                 res.send(err);
             }
@@ -33,15 +33,15 @@ router.post('/todos', function(req, res) {
 
 });
 
-router.delete('/todos/:todo_id', function(req, res) {
+router.delete('/todos/:todo_id', function (req, res) {
     Todo.remove({
-        _id : req.params.todo_id
-    }, function(err, todo) {
+        _id: req.params.todo_id
+    }, function (err, todo) {
         if (err) {
             res.send(err);
         }
 
-        Todo.find(function(err, todos) {
+        Todo.find(function (err, todos) {
             if (err) {
                 res.send(err);
             }

@@ -11,24 +11,24 @@ mongoose.connect(config.DB_URL, config.DB_OPTIONS);
 var conn = mongoose.connection;
 
 conn.on('error', console.error.bind(console, 'connection error:'));
-conn.once('open', function() {
+conn.once('open', function () {
 	console.log("MongoLab connected.");
 });
 
 app.use(express.static(__dirname + '/public'));
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({
-	'extended' : 'true'
+	'extended': 'true'
 }));
 app.use(bodyParser.json());
 app.use(bodyParser.json({
-	type : 'application/vnd.api+json'
+	type: 'application/vnd.api+json'
 }));
 app.use(methodOverride());
 
 app.use('/api', router);
 
-app.get('*', function(req, res) {
+app.get('*', function (req, res) {
 	res.sendfile('./public/index.html');
 });
 
