@@ -16,6 +16,8 @@ router.get('/todos', function(req, res) {
 router.post('/todos', function(req, res) {
 
     Todo.create({
+        creDate : new Date(),
+        category : "Work",
         text : req.body.text,
         done : false
     }, function(err, todo) {
