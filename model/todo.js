@@ -3,7 +3,7 @@ var Schema = mongoose.Schema;
 
 var Todo = new Schema({
 	creDate : Date,
-	category : String,
+	cat : String,
 	text : String
 });
 
