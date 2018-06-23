@@ -1,0 +1,1 @@
+{"webapi_host":"https:\/\/community.steam-api.com\/","webapi_host_secure":"https:\/\/community.steam-api.com\/","token":"7f1a05f26912d75558736a7a63327d86","steamid":"76561198028837580","persona_name":"Sausager","success":1}
